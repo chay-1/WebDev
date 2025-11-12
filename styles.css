@@ -45,6 +45,69 @@ button {
     width: 100%; /* Full width for button */
 }
 
+/* Bright theme overrides - placed at bottom to ensure they take effect */
+:root{
+    --bg-start: #ffefba; /* warm yellow */
+    --bg-end: #fff2f8; /* soft pink */
+    --primary: #ff6b6b; /* coral */
+    --accent: #22c1c3; /* teal */
+    --cta-hover: #ff4b4b;
+    --link-color: #6a5cff; /* bright indigo */
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    color: #222;
+}
+
+.container{
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+    border: 2px solid rgba(106,92,255,0.08);
+}
+
+button {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    box-shadow: 0 6px 18px rgba(34,193,195,0.12);
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+button:hover{
+    background: linear-gradient(90deg, var(--cta-hover), var(--accent));
+}
+
+.footer-text {
+    color: #333;
+}
+
+.footer-text a, .link-btn {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.link-btn:hover{
+    color: #4a3bff;
+}
+
+/* Make inputs pop on focus */
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(106,92,255,0.08);
+    border-color: var(--accent);
+}
+
+/* Compact responsive tweaks */
+@media (min-width:600px){
+    .container{ width: 420px; }
+}
+
 button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
