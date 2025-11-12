@@ -306,7 +306,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.navigateToProfile = function () {
         console.log('Navigate to profile requested');
-        // No profile page in project root; keep as a no-op for safety.
+        // Navigate to the admin profile page (added AdminProfile.html)
+        try {
+            // If current role is admin, go to AdminProfile, otherwise go to UserDB
+            const current = sessionStorage.getItem('currentRole');
+            if (current === 'admin') window.location.href = 'AdminProfile.html';
+            else window.location.href = 'UserDB.html';
+        } catch (e) {
+            window.location.href = 'AdminProfile.html';
+        }
     };
 
     window.navigateToNext = function () {

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button class="back-btn small" onclick="navigateBackToDashboard()" aria-label="Back to dashboard">← Back</button>
+    <h1>Admin Profile</h1>
+
+    <div class="admin-info">
+      <img src="images/admin.jpg" alt="Admin" class="admin-image">
+      <h2 id="profileName">Yangki</h2>
+      <p id="profileEnroll">Enrollment ID: 123456</p>
+      <p id="profileDept">Department: Arts and Humanities</p>
+      <p id="profileEmail">Email: yangki07@gmail.com</p>
+    </div>
+
+    <div class="dashboard-links">
+      <button type="button" onclick="toggle('editProfile')">Edit Profile</button>
+      <button type="button" onclick="navigateToLeaveRequest()">View Leave Requests</button>
+    </div>
+
+    <div id="editProfile" class="hidden">
+      <h2>Edit Profile</h2>
+      <form id="profileForm" onsubmit="event.preventDefault(); applyProfileChanges();">
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="fullName" type="text" value="Yangki">
+
+        <label for="emailInput">Email</label>
+        <input id="emailInput" name="emailInput" type="email" value="yangki07@gmail.com">
+
+        <label for="deptInput">Department</label>
+        <input id="deptInput" name="deptInput" type="text" value="Arts and Humanities">
+
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Apply changes locally and update the UI
+    function applyProfileChanges(){
+      const name = document.getElementById('fullName')?.value || '';
+      const email = document.getElementById('emailInput')?.value || '';
+      const dept = document.getElementById('deptInput')?.value || '';
+
+      if(name) document.getElementById('profileName').textContent = name;
+      if(email) document.getElementById('profileEmail').textContent = 'Email: ' + email;
+      if(dept) document.getElementById('profileDept').textContent = 'Department: ' + dept;
+
+      // simple user feedback
+      alert('Profile saved locally.');
+      toggle('editProfile');
+    }
+  </script>
+</body>
+</html>
