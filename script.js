@@ -328,7 +328,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     window.navigateHome = function () {
-        window.location.href = 'LandingPage1.html';
+        // Corrected filename: LandingPage.html exists in the WebDev folder
+        window.location.href = 'LandingPage.html';
     };
 
     window.navigateToLeaveStatus = function () {
