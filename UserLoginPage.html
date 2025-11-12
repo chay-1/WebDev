@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>User Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1>User</h1>
+        <form id="userLoginForm">
+            <label for="fullName">Enter Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Enter Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p class="footer-text">
+            <a href="#forgotPassword" onclick="toggleForgotPassword()">Forgot password?</a>
+        </p>
+        <p class="footer-text">
+            Don’t have an account? <a href="#" onclick="toggleSignUp()">Sign Up</a>
+        </p>
+
+        <div id="forgotPassword" class="hidden">
+            <h2>Forgot Password?</h2>
+            <form id="resetPasswordForm">
+                <label for="resetEmail">Email:</label>
+                <input type="email" id="resetEmail" name="resetEmail" required>
+
+                <button type="submit">Reset Password</button>
+            </form>
+            <p class="footer-text">
+                <a href="#" onclick="toggleForgotPassword()">Back to Login</a>
+            </p>
+        </div>
+
+        <div id="signUp" class="hidden">
+            <h2>Get Started</h2>
+            <form id="signUpForm">
+                <label for="fullName">Enter Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="signUpEmail">Enter Email:</label>
+                <input type="email" id="signUpEmail" name="signUpEmail" required>
+
+                <label for="signUpPassword">Enter Password:</label>
+                <input type="password" id="signUpPassword" name="signUpPassword" required>
+
+                <!-- role selection removed from sign-up to keep signup simple -->
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="footer-text">
+                Already have an account? <a href="#" onclick="toggleSignUp()">Login</a>
+            </p>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+    <script>
+        // Prefill user login with pending credentials if present
+        (function prefillUser() {
+            try {
+                const raw = sessionStorage.getItem('pendingLogin');
+                if (!raw) return;
+                const pending = JSON.parse(raw);
+                if (!pending) return;
+                const emailEl = document.getElementById('email');
+                const passEl = document.getElementById('password');
+                const nameEl = document.getElementById('fullName');
+                if (emailEl && pending.email) emailEl.value = pending.email;
+                if (passEl && pending.password) passEl.value = pending.password;
+                // fullName not part of pendingLogin; leave as-is
+            } catch (e) {
+                // ignore
+            }
+        })();
+    </script>
+</body>
+</html>

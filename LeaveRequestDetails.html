@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Leave Request Detail</title>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn small" onclick="navigateToLeaveRequest()" aria-label="Back to Leave Requests">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr-only">Back to Leave Requests</span>
+        </button>
+        <h1>Leave Request</h1>
+        <p>Leave Reason: I am requesting leave for personal matters.</p>
+        <button onclick="approveLeave()">Approve</button>
+        <button onclick="declineLeave()">Decline</button>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

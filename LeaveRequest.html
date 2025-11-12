@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Leave Requests</title>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn small" onclick="navigateBackToDashboard()" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr-only">Back</span>
+        </button>
+        <h1>Leave Requests</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gyelmo</td>
+                    <td><button onclick="openLeaveRequest('approved')">Approved</button></td>
+                </tr>
+                <tr>
+                    <td>Rinzin</td>
+                    <td><button onclick="openLeaveRequest('declined')">Declined</button></td>
+                </tr>
+                <tr>
+                    <td>Rinchen</td>
+                    <td><button onclick="openLeaveRequest('pending')">Pending</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

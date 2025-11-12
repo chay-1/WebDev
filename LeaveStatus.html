@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Leave Status</title>
+</head>
+<body>
+    <div class="container">
+        <button id="backBtn" class="back-btn small" onclick="navigateBackToDashboard()" aria-label="Back">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr-only">Back</span>
+        </button>
+        <h1>Status</h1>
+
+        <section class="status-section">
+            <h2>Approved <button onclick="toggleList('approved')" aria-expanded="true">Show/Hide</button></h2>
+            <ul id="approvedList">
+                <li>Sangay Wangmo</li>
+                <li>Pema Wangchuk</li>
+            </ul>
+        </section>
+
+        <section class="status-section">
+            <h2>Declined <button onclick="toggleList('declined')" aria-expanded="true">Show/Hide</button></h2>
+            <ul id="declinedList">
+                <li>Pema Gyelmo</li>
+                <li>Rinzin Wangmo</li>
+            </ul>
+        </section>
+
+        <section class="status-section">
+            <h2>Pending <button onclick="toggleList('pending')" aria-expanded="true">Show/Hide</button></h2>
+            <ul id="pendingList">
+                <li>Newyork Dorji</li>
+                <li>London Choden</li>
+            </ul>
+        </section>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

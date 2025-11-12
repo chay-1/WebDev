@@ -1,0 +1,31 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Leave Application Notifications</title>
+</head>
+<body>
+    <div class="notification-container">
+        <h2>Notifications</h2>
+        <div class="notification approved">
+            <p><strong>S.W.</strong></p>
+            <p>Your application is approved, congratulations!</p>
+        </div>
+        <div class="notification rejected">
+            <p><strong>S.W.</strong></p>
+            <p>Your application is rejected, sorry!</p>
+        </div>
+        <div class="notification pending">
+            <p><strong>S.W.</strong></p>
+            <p>Your application is pending.</p>
+        </div>
+    <button class="back-btn small" onclick="navigateBackToDashboard()" aria-label="Back">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="sr-only">Back</span>
+    </button>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

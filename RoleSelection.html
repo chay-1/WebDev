@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Choose Role</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Continue as</h1>
+        <p>Select how you want to continue after login</p>
+        <div style="text-align:center; margin-top:12px">
+            <button id="asUser" style="margin:8px;padding:10px 20px">User</button>
+            <button id="asAdmin" style="margin:8px;padding:10px 20px">Admin</button>
+        </div>
+        <div style="text-align:center;margin-top:10px">
+            <a href="LoginScreen.html">Back to Login</a>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+    <script>
+        // Wire buttons to the shared handler in script.js
+        const asUser = document.getElementById('asUser');
+        const asAdmin = document.getElementById('asAdmin');
+        function redirectToRoleLoginPages() {
+            if (asUser) asUser.addEventListener('click', function () { window.location.href = 'UserLoginPage.html'; });
+            if (asAdmin) asAdmin.addEventListener('click', function () { window.location.href = 'AdminLoginPage.html'; });
+        }
+
+        // If there are no pending credentials, allow navigation to role-specific login pages
+        (function checkPending() {
+            let pending = null;
+            try { pending = sessionStorage.getItem('pendingLogin'); } catch (e) { pending = null; }
+            const container = document.querySelector('.container');
+            if (!pending) {
+                const note = document.createElement('p');
+                note.style.color = 'red';
+                note.textContent = 'No login in progress — you can go Back to Login or choose a role to open the role-specific login page.';
+                container.insertBefore(note, container.children[2]);
+                // wire buttons to their respective login pages so user can initiate role-specific login
+                redirectToRoleLoginPages();
+                return;
+            }
+            // If pending credentials exist, finalize login when a role is chosen
+            if (asUser) asUser.addEventListener('click', function () { window.handleRoleLogin && window.handleRoleLogin('user'); });
+            if (asAdmin) asAdmin.addEventListener('click', function () { window.handleRoleLogin && window.handleRoleLogin('admin'); });
+        })();
+    </script>
+</body>
+</html>
